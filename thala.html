@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href='./thalas.css'>
+</head>
+<body>
+    <div class="root">
+        
+            <div class='main'>
+              <div class='heading'>
+                <h1>Thala for a Reason</h1>
+              </div>
+              <div class='inner'>
+                  <input type="text" placeholder="Enter names here" class='form'/>
+                  <button class="btn">Submit</button>
+              </div>
+              <div class='output'>
+                
+              </div>
+              <audio src="./Bole Jo Koyal Instrumental.mp3" class="audio"></audio>
+            </div>
+          </div>
+        
+    </div>
+</body>
+<script>
+    var audio=document.querySelector('.audio');
+    const btn = document.querySelector('.btn');
+    const form = document.querySelector('.form');
+    const output = document.querySelector('.output');
+    const root = document.querySelector('.root');
+    
+    btn.addEventListener('click',()=>{
+        const names = form.value;
+        if(names.length==0){
+        alert('Enter names')
+        }
+       
+        let result = names.replace(/[^0-9]/g, "");
+            let strArray = result.split("");
+            if(strArray.length==0){
+                console.log('NaN');
+            }
+            let sum = 0;
+            for (let i = 0; i < strArray.length; i++) {
+                sum += parseInt(strArray[i]);
+            }
+            if(sum==7){
+                output.innerHTML = `<h2 class="op">${names} is thala for a reason</h2>`;
+                audio.play();
+                output.style.backgroundImage = "url('https://w0.peakpx.com/wallpaper/699/933/HD-wallpaper-dhoni-csk-lion-thala-whistle-podu.jpg')";
+                output.style.backgroundSize = "cover";
+            }else{
+                if(names.length==7){
+            output.innerHTML = `<h2 class="op">${names} is thala for a reason</h2>`;
+            audio.play();
+            output.style.backgroundImage = "url('https://w0.peakpx.com/wallpaper/699/933/HD-wallpaper-dhoni-csk-lion-thala-whistle-podu.jpg')";
+            output.style.backgroundSize = "cover";
+            
+            }else{
+                output.innerHTML = `<h2>${names} is not thala for a reason</h2>`;
+                audio.pause();
+                output.style.background = 'rgb(15,97,250)';
+            }
+        }
+        
+    })
+</script>
+</html>
